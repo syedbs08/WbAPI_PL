@@ -1,0 +1,54 @@
+<root>
+  <item title="Home" type="link" url="/dashboard" icon="home" order="1" allow="OPSI_APPS_ADMIN,All" active="false">
+  </item>
+  <item title="Dash Master" type="sub" url="" icon="fe fe-database" order="4" allow="OPSI_APPS_ADMIN,OPSI_SALES" active="false">
+    <item title="Monthly" type="link" url="/masters/dash" icon="" order="0" allow="OPSI_APPS_ADMIN,OPSI_SALES" active="false" />
+    <item title="BP" type="link" url="/masters/dash-bp" icon="" order="0" allow="OPSI_APPS_ADMIN,OPSI_SALES" active="false" />
+  </item>
+  <item title="COG" type="sub" url="" icon="fa fa-cloud-upload" order="5" allow="OPSI_APPS_ADMIN,OPSI_MKTG" active="false">
+    <item title="COG Upload" type="link" url="/cog/fileupload" icon="" order="0" allow="OPSI_APPS_ADMIN,OPSI_MKTG" active="false" />
+  </item>
+  <item title="Adjusment" type="sub" url="" icon="fa fa-adjust" order="6" allow="OPSI_APPS_ADMIN,OPSI_MGMT" active="false">
+    <item title="Adjustment Upload" type="link" url="/adjustment/fileupload" icon="" order="0" allow="OPSI_APPS_ADMIN,OPSI_MGMT" active="false" />
+  </item>
+  <item title="Transmission" type="sub" url="" icon="fa fa-cog" order="8" allow="OPSI_APPS_ADMIN,OPSI_TRANSMISSION" active="false">
+    <item title="Transmission List" type="link" url="/transmission/transmission-list" icon="" order="0" allow="OPSI_APPS_ADMIN,OPSI_TRANSMISSION" active="false" />
+    <item title="Pre-Transmission " type="link" url="/transmission/pre-transmission-list" icon="" order="0" allow="OPSI_APPS_ADMIN,OPSI_TRANSMISSION" active="false" />
+    <item title="Transmission " type="link" url="/transmission/transmit-data" icon="" order="0" allow="OPSI_APPS_ADMIN,OPSI_TRANSMISSION" active="false" />
+    <item title="Dash-Upload" type="link" url="/transmission/dash-upload" icon="" order="0" allow="OPSI_APPS_ADMIN,OPSI_TRANSMISSION" active="false" />
+  </item>
+  <item title="Masters" type="sub" url="" icon="fe fe-settings" order="2" allow="OPSI_APPS_ADMIN,OPSI_BASIC,OPSI_MGMT" active="false">
+    <item title="Country" type="link" url="/masters/country" icon="" order="0" allow="OPSI_APPS_ADMIN,OPSI_BASIC" active="false" />
+    <item title="Company" type="link" url="/masters/company" icon="" order="0" allow="OPSI_APPS_ADMIN,OPSI_BASIC" active="false" />
+    <item title="Region" type="link" url="/masters/region" icon="" order="0" allow="OPSI_APPS_ADMIN,OPSI_BASIC" active="false" />
+    <item title="Department" type="link" url="/masters/department" icon="" order="0" allow="OPSI_APPS_ADMIN,OPSI_BASIC" active="false" />
+    <item title="Currency" type="link" url="/masters/currency" icon="" order="0" allow="OPSI_APPS_ADMIN,OPSI_BASIC" active="false" />
+    <item title="Model" type="link" url="/masters/material" icon="" order="0" allow="OPSI_APPS_ADMIN,OPSI_BASIC" active="false" />
+    <item title="Customer" type="link" url="/masters/customer" icon="" order="0" allow="OPSI_APPS_ADMIN,OPSI_BASIC" active="false" />
+     </item>
+  <item title="Settings" type="sub" url="" icon="fe fe-settings" order="3" allow="OPSI_APPS_ADMIN,OPSI_USER,OPSI_SALES" active="false">
+    <item title="Menu Management" type="link" url="/masters/managemenu" icon="" order="0" allow="OPSI_APPS_ADMIN,OPSI_USER" active="false" />
+    <item title="User Management" type="link" url="/masters/manageuser" icon="" order="0" allow="OPSI_APPS_ADMIN,OPSI_USER" active="false" />
+    <item title="User Profile" type="link" url="/masters/userprofile" icon="" order="0" allow="OPSI_APPS_ADMIN,OPSI_USER" active="false" />
+  </item>
+  <item title="Direct Sales" type="sub" url="" icon="fa fa-pencil" order="5" allow="OPSI_SALES,OPSI_MKTG_HEAD,OPSI_APPS_ADMIN,OPSI_SALES_HEAD,OPSI_SSD,OPSI_MKTG" active="false">
+    <item title="Manage Agent Excel" type="link" url="/directsales/manageagentuploads" icon="" order="0" allow="OPSI_APPS_ADMIN,OPSI_SALES" active="false" />
+    <item title="OC Indication Month Confirm" type="link" url="/directsales/ocindicationmonth" icon="" order="0" allow="OPSI_APPS_ADMIN,OPSI_SALES_HEAD,OPSI_MKTG_HEAD" active="false" />
+    <item title="O-Lock Month Confirm" type="link" url="/directsales/oclocmonths" icon="" order="0" allow="OPSI_APPS_ADMIN,OPSI_MKTG" active="false" />
+    <item title="SSD Forecast Upload" type="link" url="/directsales/ssd-forecast-upload" icon="" order="0" allow="OPSI_APPS_ADMIN,OPSI_SSD" active="false" />
+  </item>
+  <item title="Report" type="sub" url="" icon="fa fa-file" order="10" allow="OPSI_APPS_ADMIN,OPSI_REPORTS" active="false">
+    <item title="Consolidated" type="link" url="/report/consolidated-report" icon="" order="0" allow="OPSI_APPS_ADMIN,OPSI_REPORTS" active="false" />
+    <item title="NonConsolidated " type="link" url="/report/non-consolidated-report" icon="" order="0" allow="OPSI_APPS_ADMIN,OPSI_REPORTS" active="false" />
+    <item title="Accuracy" type="link" url="/report/accurency-report" icon="" order="0" allow="OPSI_APPS_ADMIN,OPSI_REPORTS" active="false" />
+  </item>
+  <item title="SNS" type="sub" url="" icon="fa fa-cloud-upload" order="5" allow="OPSI_APPS_ADMIN,OPSI_SALES,OPSI_PLANNING" active="false">
+    <item title="SNS Upload" type="link" url="/sns/fileupload" icon="" order="0" allow="OPSI_APPS_ADMIN,OPSI_SALES" active="false" />
+    <item title="Archive Data" type="link" url="/sns/archivedata" icon="" order="0" allow="OPSI_APPS_ADMIN,OPSI_PLANNING" active="false" />
+    <item title="Stock Pricing" type="link" url="/sns/stockpricing" icon="" order="0" allow="OPSI_APPS_ADMIN,OPSI_SALES" active="false" />
+    <item title="SNS Download" type="link" url="/sns/snsdownload" icon="" order="0" allow="OPSI_APPS_ADMIN,OPSI_SALES" active="false" />
+    <item title="SNS Planning" type="link" url="/sns/sns-planning" icon="" order="0" allow="OPSI_APPS_ADMIN,OPSI_PLANNING" active="false" />
+    <item title="Month Closing" type="link" url="/sns/month-closing" icon="" order="0" allow="OPSI_APPS_ADMIN,OPSI_PLANNING" active="false" />
+    <item title="SNS Mapping" type="link" url="/sns/sns-mapping" icon="" order="0" allow="OPSI_APPS_ADMIN,OPSI_SALES,OPSI_PLANNING" active="false" />
+  </item>
+</root>

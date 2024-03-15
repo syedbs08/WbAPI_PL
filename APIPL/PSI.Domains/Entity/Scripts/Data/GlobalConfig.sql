@@ -1,0 +1,1 @@
+INSERT INTO [dbo].[GlobalConfig] VALUES('PSI_YEAR', '2023'); 

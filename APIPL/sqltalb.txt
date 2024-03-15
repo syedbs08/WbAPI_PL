@@ -1,0 +1,1888 @@
+CREATE TABLE [dbo].[Account](
+	[AccountId] [int] IDENTITY(1,1) NOT NULL,
+	[AccountCode] [nvarchar](20) NULL,
+	[AccountName] [varchar](100) NULL,
+	[IsActive] [bit] NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [varchar](100) NULL,
+	[UpdateDate] [datetime] NULL,
+	[UpdateBy] [varchar](100) NULL,
+	[PlantCode] [varchar](50) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[AccountId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AdjustmentEntry]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AdjustmentEntry](
+	[AdjustmentEntryId] [int] IDENTITY(1,1) NOT NULL,
+	[CustomerId] [int] NULL,
+	[CustomerCode] [varchar](50) NULL,
+	[MaterialId] [int] NULL,
+	[MaterialCode] [varchar](50) NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [varchar](50) NULL,
+	[UpdateDate] [datetime] NULL,
+	[UpdateBy] [varchar](50) NULL,
+	[AttachmentId] [int] NULL,
+	[MonthYear] [varchar](10) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[AdjustmentEntryId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AdjustmentEntryArchive]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AdjustmentEntryArchive](
+	[AdjustmentEntryArchiveId] [int] IDENTITY(1,1) NOT NULL,
+	[AdjustmentEntryId] [int] NULL,
+	[CustomerId] [int] NULL,
+	[CustomerCode] [varchar](50) NULL,
+	[MaterialId] [int] NULL,
+	[MaterialCode] [varchar](50) NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [varchar](50) NULL,
+	[UpdateDate] [datetime] NULL,
+	[UpdateBy] [varchar](50) NULL,
+	[AttachmentId] [int] NULL,
+	[MonthYear] [varchar](10) NULL,
+	[ArchiveDate] [datetime] NULL,
+	[ArchiveBy] [varchar](50) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[AdjustmentEntryArchiveId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AdjustmentEntryQtyPrice]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AdjustmentEntryQtyPrice](
+	[AdjustmentEntryQtyPriceId] [int] IDENTITY(1,1) NOT NULL,
+	[AdjustmentEntryId] [int] NULL,
+	[MonthYear] [varchar](10) NULL,
+	[Qty] [nvarchar](20) NULL,
+	[Price] [nvarchar](20) NULL,
+	[Amount] [nvarchar](50) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[AdjustmentEntryQtyPriceId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AdjustmentEntryQtyPriceArchive]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AdjustmentEntryQtyPriceArchive](
+	[AdjustmentEntryQtyPriceArchiveId] [int] IDENTITY(1,1) NOT NULL,
+	[AdjustmentEntryId] [int] NULL,
+	[MonthYear] [varchar](10) NULL,
+	[Qty] [nvarchar](20) NULL,
+	[Price] [nvarchar](20) NULL,
+	[Amount] [nvarchar](50) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[AdjustmentEntryQtyPriceArchiveId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AirPort]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AirPort](
+	[AirPortId] [int] IDENTITY(1,1) NOT NULL,
+	[AirPortName] [varchar](100) NULL,
+	[AirportCode] [varchar](10) NULL,
+	[IsActive] [bit] NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [varchar](100) NULL,
+	[UpdateDate] [datetime] NULL,
+	[UpdateBy] [varchar](100) NULL,
+ CONSTRAINT [PK__AirPort__3B7B731136A3D8D8] PRIMARY KEY CLUSTERED 
+(
+	[AirPortId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Attachments]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Attachments](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Extension] [nvarchar](10) NULL,
+	[DocumentName] [nvarchar](100) NULL,
+	[UpdateDate] [datetime] NULL,
+	[UpdateBy] [nvarchar](200) NULL,
+	[IsActive] [bit] NULL,
+	[DocumentPath] [nvarchar](max) NULL,
+	[VirtualFileName] [nvarchar](200) NULL,
+	[Base64String] [nvarchar](max) NULL,
+	[FileTypeId] [int] NULL,
+	[FileTypeName] [nvarchar](100) NULL,
+	[CreatedBy] [nvarchar](200) NULL,
+	[CreatedDate] [datetime] NULL,
+	[FolderName] [nvarchar](100) NULL,
+	[DocumentMonth] [nvarchar](6) NULL,
+ CONSTRAINT [PK_Attachments] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[BWExecutionLog]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[BWExecutionLog](
+	[Process] [nvarchar](50) NULL,
+	[LastExecutionDateTime] [datetime] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[COGEntry]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[COGEntry](
+	[COGEntryId] [int] IDENTITY(1,1) NOT NULL,
+	[CustomerId] [int] NULL,
+	[CustomerCode] [varchar](50) NULL,
+	[MaterialId] [int] NULL,
+	[MaterialCode] [varchar](50) NULL,
+	[SaleTypeId] [int] NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [varchar](50) NULL,
+	[UpdateDate] [datetime] NULL,
+	[UpdateBy] [varchar](50) NULL,
+	[MonthYear] [varchar](10) NULL,
+	[AttachmentID] [int] NULL,
+	[SaleSubType] [nvarchar](20) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[COGEntryId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[COGEntryArchive]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[COGEntryArchive](
+	[COGEntryArchiveId] [int] IDENTITY(1,1) NOT NULL,
+	[COGEntryId] [int] NULL,
+	[CustomerId] [int] NULL,
+	[CustomerCode] [varchar](50) NULL,
+	[MaterialId] [int] NULL,
+	[MaterialCode] [varchar](50) NULL,
+	[SaleTypeId] [int] NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [varchar](50) NULL,
+	[UpdateDate] [datetime] NULL,
+	[UpdateBy] [varchar](50) NULL,
+	[ArchiveDate] [datetime] NULL,
+	[ArchiveBy] [varchar](50) NULL,
+	[MonthYear] [varchar](10) NULL,
+	[AttachmentID] [int] NULL,
+	[ArchiveStatus] [varchar](10) NULL,
+	[SaleSubType] [nvarchar](20) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[COGEntryArchiveId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[COGEntryQtyPrice]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[COGEntryQtyPrice](
+	[COGEntryQtyPriceId] [int] IDENTITY(1,1) NOT NULL,
+	[COGEntryId] [int] NULL,
+	[MonthYear] [varchar](10) NULL,
+	[ChargeType] [varchar](200) NULL,
+	[Qty] [int] NULL,
+	[Price] [decimal](18, 2) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[COGEntryQtyPriceId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[COGEntryQtyPriceArchive]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[COGEntryQtyPriceArchive](
+	[COGEntryQtyPriceArchiveId] [int] IDENTITY(1,1) NOT NULL,
+	[COGEntryQtyPriceId] [int] NULL,
+	[COGEntryId] [int] NULL,
+	[MonthYear] [varchar](10) NULL,
+	[ChargeType] [varchar](200) NULL,
+	[Qty] [int] NULL,
+	[Price] [decimal](18, 2) NULL,
+	[ArchiveStatus] [varchar](10) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[COGEntryQtyPriceArchiveId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Company]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Company](
+	[CompanyId] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyName] [varchar](100) NULL,
+	[CompanyCode] [nvarchar](20) NULL,
+	[CompanyShortName] [nvarchar](20) NULL,
+	[IsActive] [bit] NULL,
+	[IsDeleted] [bit] NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [varchar](100) NULL,
+	[UpdateDate] [datetime] NULL,
+	[UpdateBy] [varchar](100) NULL,
+ CONSTRAINT [PK_Company] PRIMARY KEY CLUSTERED 
+(
+	[CompanyId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Country]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Country](
+	[CountryId] [int] IDENTITY(1,1) NOT NULL,
+	[CountryName] [varchar](100) NULL,
+	[CountryCode] [nvarchar](10) NULL,
+	[CountryshortName] [varchar](100) NULL,
+	[IsActive] [bit] NULL,
+	[IsDeleted] [bit] NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [varchar](100) NULL,
+	[UpdateDate] [datetime] NULL,
+	[UpdateBy] [varchar](100) NULL,
+	[CurrencyId] [int] NULL,
+ CONSTRAINT [PK_Country] PRIMARY KEY CLUSTERED 
+(
+	[CountryId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Currency]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Currency](
+	[CurrencyId] [int] IDENTITY(1,1) NOT NULL,
+	[CurrencyCode] [nvarchar](10) NULL,
+	[CurrencyName] [varchar](100) NULL,
+	[ExchangeRate] [decimal](18, 4) NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [varchar](100) NULL,
+	[UpdateDate] [datetime] NULL,
+	[UpdateBy] [varchar](100) NULL,
+	[AttachmentId] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[CurrencyId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Customer]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Customer](
+	[CustomerId] [int] IDENTITY(1,1) NOT NULL,
+	[CustomerCode] [nvarchar](10) NULL,
+	[CustomerName] [varchar](100) NULL,
+	[CustomerShortName] [varchar](100) NULL,
+	[EmailId] [varchar](100) NULL,
+	[SalesOfficeId] [int] NULL,
+	[RegionId] [int] NULL,
+	[CountryId] [int] NULL,
+	[DepartmentId] [int] NULL,
+	[IsCollabo] [bit] NULL,
+	[IsActive] [bit] NULL,
+	[IsPSI] [bit] NULL,
+	[IsBP] [bit] NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [varchar](100) NULL,
+	[UpdateDate] [datetime] NULL,
+	[UpdateBy] [varchar](100) NULL,
+	[PersonInChargeId] [nvarchar](max) NULL,
+ CONSTRAINT [PK_Customer] PRIMARY KEY CLUSTERED 
+(
+	[CustomerId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[CustomerDID]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CustomerDID](
+	[CustomerDIDId] [int] IDENTITY(1,1) NOT NULL,
+	[CustomerId] [int] NULL,
+	[SaleTypeId] [int] NULL,
+	[AccountId] [int] NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [varchar](100) NULL,
+	[UpdateDate] [datetime] NULL,
+	[UpdateBy] [varchar](100) NULL,
+	[SalesOrganizationCode] [varchar](50) NULL,
+	[CustomerCode] [varchar](50) NULL,
+	[AccountCode] [varchar](50) NULL,
+ CONSTRAINT [PK__Customer__68129EC4473B2137] PRIMARY KEY CLUSTERED 
+(
+	[CustomerDIDId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[CustomerDidtest]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CustomerDidtest](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[SalesType] [varchar](50) NULL,
+	[SalesOrganizationCode] [varchar](50) NULL,
+	[CustomerCode] [varchar](50) NULL,
+	[AccountCode] [varchar](50) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[CustomerTest]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CustomerTest](
+	[CustomerTestId] [int] IDENTITY(1,1) NOT NULL,
+	[CUST_CODE] [varchar](50) NULL,
+	[CUST_NAME] [varchar](100) NULL,
+	[CUST_USER_SHORT_NAME] [varchar](100) NULL,
+	[SALESOFFICE] [varchar](100) NULL,
+	[SALESOFFDESC] [varchar](100) NULL,
+	[CUST_USR_COU_CODE] [varchar](100) NULL,
+	[CUST_USR_DEPT_CODE] [varchar](100) NULL,
+	[CUST_USER_REGION_CODE] [varchar](100) NULL,
+	[ISDIRECT] [varchar](100) NULL,
+	[IsPSI] [varchar](100) NULL,
+	[IsBP] [varchar](100) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[CustomerTestId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[CustomerType]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CustomerType](
+	[CustomerTypeId] [int] IDENTITY(1,1) NOT NULL,
+	[CustomerType] [varchar](100) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[CustomerTypeId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[DashMaterial]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[DashMaterial](
+	[DashMaterialId] [int] IDENTITY(1,1) NOT NULL,
+	[MaterialCode] [nvarchar](20) NULL,
+	[CustomerCode] [nvarchar](10) NULL,
+	[SalesCompany] [nvarchar](10) NULL,
+	[SupplierCode] [nvarchar](10) NULL,
+	[ReasonId] [int] NOT NULL,
+	[StartMonth] [int] NULL,
+	[EndMonth] [int] NULL,
+	[TransPortMode] [varchar](10) NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [varchar](100) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedBy] [varchar](100) NULL,
+	[FileName] [nvarchar](200) NULL,
+	[RegistrationDateTime] [datetime] NULL,
+	[RegistrationUserCode] [varchar](100) NULL,
+	[RecordChangeDateTime] [datetime] NULL,
+	[RecordChangeUserCode] [varchar](100) NULL,
+	[IsActive] [bit] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[DashMaterialBP]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[DashMaterialBP](
+	[DashMaterialBPId] [int] IDENTITY(1,1) NOT NULL,
+	[UserId] [varchar](50) NULL,
+	[RecordType] [varchar](10) NULL,
+	[RenewalMark] [varchar](10) NULL,
+	[CustomerCode] [varchar](10) NULL,
+	[ModelCreationDate] [datetime] NULL,
+	[ModelNo] [varchar](20) NULL,
+	[FinancialYear] [varchar](100) NULL,
+	[ModelType] [varchar](10) NULL,
+	[SaleStartDate] [datetime] NULL,
+	[FactoryCode] [varchar](10) NULL,
+	[SupplierCode] [varchar](10) NULL,
+	[MaterialDescription] [varchar](100) NULL,
+	[MaterialVolume] [decimal](18, 0) NULL,
+	[TermCode] [varchar](50) NULL,
+	[CurrencyCode] [varchar](50) NULL,
+	[Model1StartDate] [varchar](50) NULL,
+	[Model1EndDate] [varchar](50) NULL,
+	[Model1Price] [decimal](18, 0) NULL,
+	[Model2StartDate] [varchar](50) NULL,
+	[Model2EndDate] [varchar](50) NULL,
+	[Model2Price] [decimal](18, 0) NULL,
+	[ModelDiscontinueDate] [datetime] NULL,
+	[PreviousItemCode] [varchar](20) NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [varchar](100) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedBy] [varchar](100) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[DashMaterialBPId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[DashMaterialByMonth]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[DashMaterialByMonth](
+	[DashMaterialByMonthId] [int] NOT NULL,
+	[MaterialCode] [varchar](100) NULL,
+	[CustomerCode] [varchar](100) NULL,
+	[CustomerName] [varchar](100) NULL,
+	[SalesCompany] [varchar](100) NULL,
+	[SupplierCode] [varchar](100) NULL,
+	[ReasonId] [int] NOT NULL,
+	[MonthYear] [varchar](50) NULL,
+	[TransPortMode] [varchar](100) NULL,
+	[Status] [varchar](50) NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [varchar](100) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedBy] [varchar](100) NULL,
+ CONSTRAINT [ForeignKey] PRIMARY KEY CLUSTERED 
+(
+	[DashMaterialByMonthId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Department]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Department](
+	[DepartmentId] [int] IDENTITY(1,1) NOT NULL,
+	[DepartmentName] [nvarchar](100) NULL,
+	[DepartmentCode] [nvarchar](100) NULL,
+	[IsActive] [bit] NULL,
+	[DepartmentDescription] [varchar](200) NULL,
+	[CountryId] [varchar](50) NULL,
+	[CompanyId] [varchar](50) NULL,
+	[IsDeleted] [bit] NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [varchar](100) NULL,
+	[UpdateDate] [datetime] NULL,
+	[UpdateBy] [varchar](100) NULL,
+ CONSTRAINT [PK_Department] PRIMARY KEY CLUSTERED 
+(
+	[DepartmentId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[DocumentTypes]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[DocumentTypes](
+	[Id] [int] NOT NULL,
+	[FolderName] [nvarchar](50) NULL,
+	[DisplayName] [nvarchar](200) NULL,
+	[IsActive] [bit] NULL,
+ CONSTRAINT [PK_DocumentTypes] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[FileInfo]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[FileInfo](
+	[FileInfoId] [int] IDENTITY(1,1) NOT NULL,
+	[FileName] [varchar](150) NOT NULL,
+	[FileTypeId] [int] NOT NULL,
+	[MimeType] [varchar](max) NOT NULL,
+	[Path] [varchar](150) NOT NULL,
+	[Extension] [varchar](50) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[FileInfoId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[FileType]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[FileType](
+	[FileTypeId] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [varchar](50) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[FileTypeId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[FileTypes]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[FileTypes](
+	[Id] [int] NULL,
+	[FileTypeName] [nvarchar](200) NULL,
+	[IsActive] [bit] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[GlobalConfig]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[GlobalConfig](
+	[GlobalConfigId] [int] IDENTITY(1,1) NOT NULL,
+	[ConfigKey] [varchar](100) NULL,
+	[ConfigValue] [varchar](max) NULL,
+	[ConfigType] [varchar](50) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[GlobalConfigId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[LockPSI]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[LockPSI](
+	[LockPSIId] [int] IDENTITY(1,1) NOT NULL,
+	[UserId] [nvarchar](500) NULL,
+	[OPSI_Upload] [bit] NULL,
+	[COG_Upload] [bit] NULL,
+	[O_LockMonthConfirm] [bit] NULL,
+	[OC_IndicationMonth] [bit] NULL,
+	[BP_Upload_DirectSale] [bit] NULL,
+	[BP_Upload_SNS] [bit] NULL,
+	[BP_COG_Upload] [bit] NULL,
+	[ADJ_Upload] [bit] NULL,
+	[SSD_Upload] [bit] NULL,
+	[SNS_Sales_Upload] [bit] NULL,
+	[Forecast_Projection] [bit] NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [varchar](200) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedBy] [varchar](200) NULL,
+	[SNS_Planning] [bit] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[LockPSIId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[LogDetailsForDISResult]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[LogDetailsForDISResult](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[ColumnName] [varchar](500) NULL,
+	[ColumnValue] [varchar](500) NULL,
+ CONSTRAINT [PK_LogDetailsForDISResult] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Material]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Material](
+	[MaterialId] [int] IDENTITY(1,1) NOT NULL,
+	[MaterialCode] [nvarchar](20) NULL,
+	[MaterialShortDescription] [nvarchar](200) NULL,
+	[CompanyId] [int] NULL,
+	[BarCode] [varchar](100) NULL,
+	[SeaPortId] [int] NULL,
+	[AirPortId] [int] NULL,
+	[SupplierId] [int] NULL,
+	[ProductCategoryId1] [int] NULL,
+	[ProductCategoryId2] [int] NULL,
+	[ProductCategoryId3] [int] NULL,
+	[ProductCategoryId4] [int] NULL,
+	[ProductCategoryId5] [int] NULL,
+	[ProductCategoryId6] [int] NULL,
+	[InSap] [bit] NULL,
+	[IsActive] [bit] NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [varchar](100) NULL,
+	[UpdateDate] [datetime] NULL,
+	[UpdateBy] [varchar](100) NULL,
+	[Weight] [decimal](18, 2) NULL,
+	[Volume] [decimal](18, 2) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[MaterialId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[MaterialCountryMapping]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[MaterialCountryMapping](
+	[MaterialCountryMappingId] [int] IDENTITY(1,1) NOT NULL,
+	[MaterialId] [int] NULL,
+	[CountryId] [int] NULL,
+	[CreatedDate] [datetime] NULL,
+	[UpdateBy] [varchar](100) NULL,
+	[CreatedBy] [varchar](100) NULL,
+	[UpdateDate] [datetime] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[MaterialCountryMappingId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ModeofType]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ModeofType](
+	[ModeofTypeId] [int] IDENTITY(1,1) NOT NULL,
+	[ModeofTypeName] [varchar](100) NULL,
+	[ModeofTypeCode] [varchar](10) NULL,
+	[IsACtive] [bit] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ModeofTypeId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Mst_CurrentLockMonthPurchase]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Mst_CurrentLockMonthPurchase](
+	[Mst_LockMonthPurchaseId] [int] IDENTITY(1,1) NOT NULL,
+	[MonthYear] [int] NULL,
+	[AccountCode] [varchar](50) NULL,
+	[MaterialCode] [varchar](100) NULL,
+	[Quantity] [int] NULL,
+	[Amount] [decimal](18, 2) NULL,
+	[DistributorChaneltId] [int] NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [varchar](100) NULL,
+	[UpdateDate] [datetime] NULL,
+	[UpdateBy] [varchar](100) NULL,
+	[ATP_CASE] [char](2) NULL,
+	[Plant] [nvarchar](10) NULL,
+ CONSTRAINT [PK__Mst_Curr__0979048CAE19034F] PRIMARY KEY CLUSTERED 
+(
+	[Mst_LockMonthPurchaseId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Mst_CurrentLockMonthPurchaseGit]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Mst_CurrentLockMonthPurchaseGit](
+	[Mst_GITId] [int] IDENTITY(1,1) NOT NULL,
+	[MonthYear] [int] NULL,
+	[AccountCode] [varchar](50) NULL,
+	[MaterialCode] [varchar](50) NULL,
+	[Quantity] [int] NULL,
+	[Amount] [decimal](18, 2) NULL,
+	[DistributorChaneltId] [int] NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [varchar](50) NULL,
+	[UpdateDate] [datetime] NULL,
+	[UpdateBy] [varchar](50) NULL,
+	[ATP_CASE] [char](2) NULL,
+	[Plant] [nvarchar](10) NULL,
+ CONSTRAINT [PK__Mst_Curr__C83AEADB4031BA16] PRIMARY KEY CLUSTERED 
+(
+	[Mst_GITId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[MST_CurrentMonthOrder]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[MST_CurrentMonthOrder](
+	[MST_CurrentOrderId] [int] IDENTITY(1,1) NOT NULL,
+	[MonthYear] [int] NULL,
+	[MaterialCode] [varchar](100) NULL,
+	[AccountCode] [nvarchar](50) NULL,
+	[Quantity] [int] NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [varchar](100) NULL,
+	[UpdateDate] [datetime] NULL,
+	[UpdateBy] [varchar](100) NULL,
+ CONSTRAINT [PK__MST_Curr__67CB95246A3DFA4B] PRIMARY KEY CLUSTERED 
+(
+	[MST_CurrentOrderId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Mst_IndicationMPO_del]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Mst_IndicationMPO_del](
+	[Mst_IndicationMPOId] [int] IDENTITY(1,1) NOT NULL,
+	[MonthYear] [int] NULL,
+	[MaterialCode] [varchar](50) NULL,
+	[Quantity] [int] NULL,
+	[AccountCode] [varchar](50) NULL,
+	[DistributorChaneltId] [int] NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [varchar](50) NULL,
+	[UpdateDate] [datetime] NULL,
+	[UpdateBy] [varchar](50) NULL,
+	[ATP_CASE] [char](2) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Mst_IndicationMPOId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Mst_LockMonthMPO_del]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Mst_LockMonthMPO_del](
+	[Mst_LockMonthMPOId] [int] IDENTITY(1,1) NOT NULL,
+	[MonthYear] [int] NULL,
+	[AccountCode] [varchar](50) NULL,
+	[MaterialCode] [varchar](50) NULL,
+	[Quantity] [int] NULL,
+	[DistributorChaneltId] [int] NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [varchar](50) NULL,
+	[UpdateDate] [datetime] NULL,
+	[UpdateBy] [varchar](50) NULL,
+	[ATP_CASE] [char](2) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Mst_LockMonthMPOId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Mst_ResultInventory]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Mst_ResultInventory](
+	[Mst_ResultInventoryId] [int] IDENTITY(1,1) NOT NULL,
+	[MonthYear] [int] NULL,
+	[MaterialCode] [varchar](50) NULL,
+	[AccountCode] [nvarchar](20) NULL,
+	[Quantity] [int] NULL,
+	[Wac_Price] [decimal](18, 2) NULL,
+	[BlockedInventory] [int] NULL,
+	[DistributorChaneltId] [int] NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [varchar](100) NULL,
+	[UpdateDate] [datetime] NULL,
+	[UpdateBy] [varchar](50) NULL,
+	[Plant] [nvarchar](50) NULL,
+ CONSTRAINT [PK__Mst_Resu__2596E3EABCC9DEF5] PRIMARY KEY CLUSTERED 
+(
+	[Mst_ResultInventoryId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[MST_ResultPurchase]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[MST_ResultPurchase](
+	[MST_ResultPurchaseId] [int] IDENTITY(1,1) NOT NULL,
+	[MonthYear] [int] NULL,
+	[MaterialCode] [varchar](50) NULL,
+	[AccountCode] [varchar](50) NULL,
+	[Quantity] [int] NULL,
+	[Amount] [decimal](18, 2) NULL,
+	[DistributorChaneltId] [int] NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [varchar](50) NULL,
+	[UpdateDate] [datetime] NULL,
+	[UpdateBy] [varchar](50) NULL,
+	[ATP_CASE] [char](2) NULL,
+	[Plant] [nvarchar](10) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[MST_ResultPurchaseId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[MST_ResultSales]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[MST_ResultSales](
+	[MST_ResultSalesId] [int] IDENTITY(1,1) NOT NULL,
+	[MonthYear] [int] NULL,
+	[CustomerCode] [varchar](50) NULL,
+	[MaterialCode] [varchar](50) NULL,
+	[Quantity] [int] NULL,
+	[Amount] [decimal](18, 2) NULL,
+	[DistributorChaneltId] [int] NULL,
+	[AccountCode] [varchar](50) NULL,
+	[Cost] [varchar](50) NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [varchar](50) NULL,
+	[UpdateDate] [datetime] NULL,
+	[UpdateBy] [varchar](50) NULL,
+	[ATP_CASE] [char](2) NULL,
+	[SalesOrganizationCode] [varchar](5) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[MST_ResultSalesId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[OcIndicationMonthAttachment]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[OcIndicationMonthAttachment](
+	[OcIndicationMonthAttachmentId] [int] IDENTITY(1,1) NOT NULL,
+	[SalesEntryPriceQuantityId] [int] NULL,
+	[AttachmentId] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[OcIndicationMonthAttachmentId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Plant]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Plant](
+	[PlantId] [int] IDENTITY(1,1) NOT NULL,
+	[PlantCode] [varchar](50) NULL,
+	[PlantName] [varchar](50) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[PlantId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Product]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Product](
+	[ProductId] [int] IDENTITY(1,1) NOT NULL,
+	[ProductCode] [varchar](50) NULL,
+	[ProductDescription] [varchar](250) NULL,
+	[IsActive] [bit] NULL,
+	[IsDeleted] [bit] NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [varchar](250) NULL,
+	[UpdateDate] [datetime] NULL,
+	[UpdateBy] [varchar](250) NULL,
+	[ProductName] [varchar](50) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ProductId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ProductCategory]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ProductCategory](
+	[ProductCategoryId] [int] IDENTITY(1,1) NOT NULL,
+	[ProductCategoryCode] [varchar](200) NULL,
+	[ParentCategoryId] [nvarchar](max) NULL,
+	[ProductCategoryName] [varchar](200) NULL,
+	[ProductCategoryShortName] [varchar](200) NULL,
+	[CategoryLevel] [int] NULL,
+	[IsActive] [bit] NULL,
+	[Isdeleted] [bit] NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [varchar](100) NULL,
+	[UpdateDate] [datetime] NULL,
+	[UpdateBy] [varchar](100) NULL,
+	[OldSubCode] [varchar](200) NULL,
+ CONSTRAINT [PK__ProductC__3224ECCEAF9242EF] PRIMARY KEY CLUSTERED 
+(
+	[ProductCategoryId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[PSIDates]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[PSIDates](
+	[PSIDatesId] [int] IDENTITY(1,1) NOT NULL,
+	[Month] [varchar](100) NULL,
+	[TransmitDate] [datetime] NULL,
+	[ATPDate] [datetime] NULL,
+	[PODate] [datetime] NULL,
+	[FY_YEAR] [varchar](10) NULL,
+	[DOC_DATE] [datetime] NULL,
+	[PSI_START_DATE] [datetime] NULL,
+	[AttachmentId] [int] NULL,
+	[IsActive] [bit] NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [varchar](100) NULL,
+	[UpdateDate] [datetime] NULL,
+	[UpdateBy] [varchar](100) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[PSIDatesId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Reason]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Reason](
+	[ReasonId] [int] NOT NULL,
+	[ReasonCode] [varchar](10) NULL,
+	[ReasonName] [varchar](100) NULL,
+	[IsActive] [bit] NOT NULL,
+ CONSTRAINT [PK_Reason] PRIMARY KEY CLUSTERED 
+(
+	[ReasonId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Region]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Region](
+	[RegionId] [int] IDENTITY(1,1) NOT NULL,
+	[RegionName] [varchar](50) NULL,
+	[RegionCode] [nvarchar](4) NULL,
+	[IsActive] [bit] NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [varchar](100) NULL,
+	[UpdateDate] [datetime] NULL,
+	[UpdateBy] [varchar](100) NULL,
+	[RegionShortDescription] [nvarchar](50) NULL,
+	[IsDeleted] [bit] NULL,
+ CONSTRAINT [PK_Region] PRIMARY KEY CLUSTERED 
+(
+	[RegionId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ReportAdditionalColumn]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ReportAdditionalColumn](
+	[ReportAdditionColumnId] [int] IDENTITY(1,1) NOT NULL,
+	[ColumnName] [nvarchar](100) NULL,
+	[ColumnType] [nvarchar](100) NULL,
+	[ReportType] [varchar](50) NULL,
+	[OrderColumn] [int] NULL,
+	[DisplayName] [varchar](30) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ReportAdditionColumnId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[SaleEntryArchivalHeader]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[SaleEntryArchivalHeader](
+	[SaleEntryArchivalHeaderId] [int] NOT NULL,
+	[CustomerId] [int] NULL,
+	[SaleTypeId] [int] NULL,
+	[ProductCategoryId1] [nvarchar](20) NULL,
+	[ProductCategoryId2] [nvarchar](20) NULL,
+	[CurrentMonthYear] [varchar](50) NULL,
+	[LockMonthYear] [varchar](50) NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [varchar](100) NULL,
+	[UpdateDate] [datetime] NULL,
+	[UpdateBy] [varchar](100) NULL,
+	[AttachmentId] [int] NULL,
+	[SaleSubType] [varchar](50) NULL,
+	[ArchiveDate] [datetime] NULL,
+	[ArchiveBy] [varchar](500) NULL,
+	[ArchiveStatus] [varchar](50) NULL,
+	[CustomerCode] [varchar](50) NULL,
+	[ArchivalMonthYear] [varchar](20) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[SaleEntryArchivalHeaderId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[SaleEntryHeader]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[SaleEntryHeader](
+	[SaleEntryHeaderId] [int] IDENTITY(1,1) NOT NULL,
+	[CustomerId] [int] NULL,
+	[SaleTypeId] [int] NULL,
+	[ProductCategoryId1] [nvarchar](20) NULL,
+	[ProductCategoryId2] [nvarchar](20) NULL,
+	[CurrentMonthYear] [varchar](50) NULL,
+	[LockMonthYear] [varchar](50) NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [varchar](100) NULL,
+	[UpdateDate] [datetime] NULL,
+	[UpdateBy] [varchar](100) NULL,
+	[AttachmentId] [int] NULL,
+	[SaleSubType] [varchar](50) NULL,
+	[CustomerCode] [nvarchar](100) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[SaleEntryHeaderId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[SalesArchivalEntry]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[SalesArchivalEntry](
+	[SalesArchivalEntryId] [int] NOT NULL,
+	[SaleEntryArchivalHeaderId] [int] NULL,
+	[MaterialId] [int] NULL,
+	[ProductCategoryCode1] [nvarchar](20) NULL,
+	[ProductCategoryCode2] [nvarchar](20) NULL,
+	[ProductCategoryCode3] [nvarchar](20) NULL,
+	[ProductCategoryCode4] [nvarchar](20) NULL,
+	[ProductCategoryCode5] [nvarchar](20) NULL,
+	[ProductCategoryCode6] [nvarchar](20) NULL,
+	[OCmonthYear] [varchar](200) NULL,
+	[OCstatus] [varchar](50) NULL,
+	[FileInfoId] [int] NULL,
+	[O_LockMonthConfirmedStatus] [varchar](100) NULL,
+	[O_LockMonthConfirmedBy] [varchar](100) NULL,
+	[O_LockMonthConfirmedDate] [varchar](100) NULL,
+	[ModeOfTypeId] [int] NULL,
+	[ArchiveDate] [datetime] NULL,
+	[ArchiveBy] [varchar](500) NULL,
+	[MaterialCode] [varchar](50) NULL,
+ CONSTRAINT [PK__SalesArc__3EE76F0A3562E4C4] PRIMARY KEY CLUSTERED 
+(
+	[SalesArchivalEntryId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[SalesArchivalEntryPriceQuantity]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[SalesArchivalEntryPriceQuantity](
+	[SalesArchivalEntryPriceQuantityId] [int] NOT NULL,
+	[SalesArchivalEntryId] [int] NULL,
+	[MonthYear] [varchar](50) NULL,
+	[Price] [decimal](18, 2) NULL,
+	[Quantity] [int] NULL,
+	[OrderIndicationConfirmedBySaleTeam] [varchar](500) NULL,
+	[OrderIndicationConfirmedBySaleTeamDate] [datetime] NULL,
+	[OrderIndicationConfirmedByMarketingTeam] [varchar](500) NULL,
+	[OrderIndicationConfirmedByMarketingTeamDate] [datetime] NULL,
+	[O_LockMonthConfirmedBy] [varchar](500) NULL,
+	[O_LockMonthConfirmedDate] [datetime] NULL,
+	[Reason] [varchar](200) NULL,
+	[IsSNS] [bit] NULL,
+	[IsPO] [bit] NULL,
+	[TermId] [varchar](100) NULL,
+	[Remarks] [varchar](max) NULL,
+	[CurrencyCode] [nvarchar](20) NULL,
+	[OcIndicationMonthAttachmentIds] [varchar](max) NULL,
+	[OcIndicationMonthStatus] [varchar](200) NULL,
+	[OCstatus] [varchar](50) NULL,
+	[ArchiveDate] [datetime] NULL,
+	[ArchiveBy] [varchar](500) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[SalesArchivalEntryPriceQuantityId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[SalesEntry]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[SalesEntry](
+	[SalesEntryId] [int] IDENTITY(1,1) NOT NULL,
+	[SaleEntryHeaderId] [int] NULL,
+	[MaterialId] [int] NULL,
+	[ProductCategoryCode1] [nvarchar](20) NULL,
+	[ProductCategoryCode2] [nvarchar](20) NULL,
+	[ProductCategoryCode3] [nvarchar](20) NULL,
+	[ProductCategoryCode4] [nvarchar](20) NULL,
+	[ProductCategoryCode5] [nvarchar](20) NULL,
+	[ProductCategoryCode6] [nvarchar](20) NULL,
+	[OCmonthYear] [varchar](200) NULL,
+	[OCstatus] [varchar](50) NULL,
+	[FileInfoId] [int] NULL,
+	[O_LockMonthConfirmedStatus] [varchar](100) NULL,
+	[O_LockMonthConfirmedBy] [varchar](100) NULL,
+	[O_LockMonthConfirmedDate] [varchar](100) NULL,
+	[ModeOfTypeId] [int] NULL,
+	[MaterialCode] [nvarchar](100) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[SalesEntryId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[SalesEntryPriceQuantity]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[SalesEntryPriceQuantity](
+	[SalesEntryPriceQuantityId] [int] IDENTITY(1,1) NOT NULL,
+	[SalesEntryId] [int] NULL,
+	[MonthYear] [varchar](50) NULL,
+	[Price] [decimal](18, 2) NULL,
+	[Quantity] [int] NULL,
+	[OrderIndicationConfirmedBySaleTeam] [varchar](500) NULL,
+	[OrderIndicationConfirmedBySaleTeamDate] [datetime] NULL,
+	[OrderIndicationConfirmedByMarketingTeam] [varchar](500) NULL,
+	[OrderIndicationConfirmedByMarketingTeamDate] [datetime] NULL,
+	[O_LockMonthConfirmedBy] [varchar](500) NULL,
+	[O_LockMonthConfirmedDate] [datetime] NULL,
+	[Reason] [varchar](200) NULL,
+	[IsSNS] [bit] NULL,
+	[IsPO] [bit] NULL,
+	[TermId] [varchar](100) NULL,
+	[Remarks] [varchar](max) NULL,
+	[CurrencyCode] [nvarchar](20) NULL,
+	[OcIndicationMonthAttachmentIds] [varchar](max) NULL,
+	[OcIndicationMonthStatus] [varchar](200) NULL,
+	[OCstatus] [varchar](50) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[SalesEntryPriceQuantityId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[SalesOffice]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[SalesOffice](
+	[SalesOfficeId] [int] IDENTITY(1,1) NOT NULL,
+	[SalesOfficeName] [varchar](100) NULL,
+	[SalesOfficeCode] [varchar](10) NULL,
+	[CompanyCode] [varchar](10) NULL,
+	[RegionId] [int] NULL,
+	[IsActive] [bit] NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [varchar](100) NULL,
+	[UpdateDate] [datetime] NULL,
+	[UpdateBy] [varchar](100) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[SalesOfficeId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[SalesOrganization]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[SalesOrganization](
+	[SalesOrganizationId] [int] IDENTITY(1,1) NOT NULL,
+	[SalesOrganizationCode] [varchar](10) NULL,
+	[SalesOrganizationName] [varchar](100) NULL,
+	[IsActive] [bit] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[SalesOrganizationId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[SaleType]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[SaleType](
+	[SaleTypeId] [int] IDENTITY(1,1) NOT NULL,
+	[SaleTypeName] [varchar](100) NULL,
+	[SaleTypeCode] [varchar](10) NULL,
+	[IsActive] [bit] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[SaleTypeId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[SeaPort]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[SeaPort](
+	[SeaPortId] [int] IDENTITY(1,1) NOT NULL,
+	[SeaPortName] [varchar](100) NULL,
+	[IsActive] [bit] NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [varchar](100) NULL,
+	[UpdateDate] [datetime] NULL,
+	[UpdateBy] [varchar](100) NULL,
+	[SeaPortCode] [varchar](10) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[SeaPortId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[SNS_Planning_Comment]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[SNS_Planning_Comment](
+	[SNS_Planning_CommentId] [int] IDENTITY(1,1) NOT NULL,
+	[MaterialCode] [varchar](100) NULL,
+	[AccountCode] [varchar](50) NULL,
+	[Comment] [varchar](max) NULL,
+	[CreatedBy] [varchar](50) NULL,
+	[CreatedDate] [datetime] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[SNS_Planning_CommentId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[SNS_Pricing]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[SNS_Pricing](
+	[SNS_PricingId] [int] IDENTITY(1,1) NOT NULL,
+	[ModeofTypeId] [int] NULL,
+	[CustomerId] [int] NULL,
+	[CustomerCode] [nvarchar](50) NULL,
+	[MaterialId] [int] NULL,
+	[MaterialCode] [nvarchar](50) NULL,
+	[CurrencyId] [int] NULL,
+	[Price] [decimal](18, 2) NULL,
+	[Price_Unit] [int] NULL,
+	[Status] [varchar](50) NULL,
+	[From_Date] [datetime] NULL,
+	[To_Date] [datetime] NULL,
+	[TermId] [int] NULL,
+	[SalesOrg] [varchar](200) NULL,
+	[DistributtonChannel] [varchar](200) NULL,
+	[Ship_Mode] [varchar](50) NULL,
+	[Inco_Term] [varchar](50) NULL,
+	[UOM] [varchar](50) NULL,
+	[Plant] [varchar](50) NULL,
+	[Vendor] [varchar](50) NULL,
+	[Port] [varchar](50) NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [varchar](350) NULL,
+	[UpdateDate] [datetime] NULL,
+	[UpdateBy] [varchar](350) NULL,
+ CONSTRAINT [PK__SNS_Pric__AF219C6165912C47] PRIMARY KEY CLUSTERED 
+(
+	[SNS_PricingId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[SNSEntry]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[SNSEntry](
+	[SNSEntryId] [int] IDENTITY(1,1) NOT NULL,
+	[SaleTypeId] [int] NULL,
+	[CustomerId] [int] NULL,
+	[CustomerCode] [nvarchar](20) NULL,
+	[MaterialId] [int] NULL,
+	[MaterialCode] [nvarchar](20) NULL,
+	[CategoryId] [int] NULL,
+	[Category] [varchar](500) NULL,
+	[AttachmentId] [int] NULL,
+	[MonthYear] [int] NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [nvarchar](200) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedBy] [nvarchar](200) NULL,
+	[ModeofTypeId] [int] NULL,
+	[OACCode] [nvarchar](20) NULL,
+	[SaleSubType] [nvarchar](20) NULL,
+ CONSTRAINT [PK_SNSEntry] PRIMARY KEY CLUSTERED 
+(
+	[SNSEntryId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[SNSEntryArchive]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[SNSEntryArchive](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[SNSEntryID] [int] NULL,
+	[SaleTypeId] [int] NULL,
+	[CustomerId] [int] NULL,
+	[CustomerCode] [nvarchar](20) NULL,
+	[MaterialId] [int] NULL,
+	[MaterialCode] [nvarchar](20) NULL,
+	[CategoryId] [int] NULL,
+	[Category] [nvarchar](500) NULL,
+	[AttachmentId] [int] NULL,
+	[MonthYear] [int] NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [nvarchar](200) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedBy] [nvarchar](200) NULL,
+	[ModeofTypeId] [int] NULL,
+	[ArchiveDate] [datetime] NULL,
+	[ArchiveBy] [nvarchar](250) NULL,
+	[ArchiveStatus] [nvarchar](250) NULL,
+	[OACCode] [varchar](20) NULL,
+	[SaleSubType] [nvarchar](20) NULL,
+	[ArchivalMonthYear] [varchar](20) NULL,
+ CONSTRAINT [PK_SNSEntryArchive] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[SNSEntryQtyPrice]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[SNSEntryQtyPrice](
+	[SNSEntryQtyPriceId] [int] IDENTITY(1,1) NOT NULL,
+	[SNSEntryId] [int] NULL,
+	[MonthYear] [varchar](20) NULL,
+	[Qty] [int] NULL,
+	[Price] [decimal](18, 2) NULL,
+	[FinalPrice] [decimal](18, 2) NULL,
+	[TotalAmount] [decimal](18, 2) NULL,
+	[Currency] [nvarchar](20) NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [nvarchar](200) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedBy] [nvarchar](200) NULL,
+ CONSTRAINT [PK_SNSEntryQtyPrice] PRIMARY KEY CLUSTERED 
+(
+	[SNSEntryQtyPriceId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[SNSEntryQtyPriceArchive]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[SNSEntryQtyPriceArchive](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[SNSEntryQtyPriceId] [int] NULL,
+	[SNSEntryId] [int] NULL,
+	[MonthYear] [varchar](50) NULL,
+	[Qty] [int] NULL,
+	[Price] [decimal](18, 2) NULL,
+	[FinalPrice] [decimal](18, 2) NULL,
+	[TotalAmount] [decimal](18, 2) NULL,
+	[Currency] [varchar](20) NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [nvarchar](200) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedBy] [nvarchar](200) NULL,
+	[ArchiveDate] [datetime] NULL,
+	[ArchiveBy] [nvarchar](250) NULL,
+	[ArchiveStatus] [nvarchar](250) NULL,
+ CONSTRAINT [PK_SNSEntryQtyPriceArchive] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[SSDEntry]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[SSDEntry](
+	[SSDEntryId] [int] IDENTITY(1,1) NOT NULL,
+	[ModeofTypeId] [int] NULL,
+	[CustomerId] [int] NULL,
+	[CustomerCode] [nvarchar](20) NULL,
+	[MaterialId] [int] NULL,
+	[MaterialCode] [nvarchar](20) NULL,
+	[AttachmentId] [int] NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [nvarchar](200) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedBy] [nvarchar](200) NULL,
+ CONSTRAINT [PK_SSDEntry] PRIMARY KEY CLUSTERED 
+(
+	[SSDEntryId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[SSDEntryArchive]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[SSDEntryArchive](
+	[SSDEntryArchiveId] [int] NOT NULL,
+	[ModeofTypeId] [int] NULL,
+	[CustomerId] [int] NULL,
+	[CustomerCode] [nvarchar](20) NULL,
+	[MaterialId] [int] NULL,
+	[MaterialCode] [nvarchar](20) NULL,
+	[AttachmentId] [int] NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [nvarchar](200) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedBy] [nvarchar](200) NULL,
+ CONSTRAINT [PK_SSDEntryArchive] PRIMARY KEY CLUSTERED 
+(
+	[SSDEntryArchiveId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[SSDEntryQtyPrice]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[SSDEntryQtyPrice](
+	[SSDEntryQtyPriceId] [int] IDENTITY(1,1) NOT NULL,
+	[SSDEntryId] [int] NULL,
+	[MonthYear] [int] NULL,
+	[Qty] [int] NULL,
+	[Price] [decimal](18, 2) NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [nvarchar](200) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedBy] [nvarchar](200) NULL,
+ CONSTRAINT [PK_SSDEntryQtyPrice] PRIMARY KEY CLUSTERED 
+(
+	[SSDEntryQtyPriceId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[SSDEntryQtyPriceArchive]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[SSDEntryQtyPriceArchive](
+	[SSDEntryQtyPriceArchiveId] [int] NOT NULL,
+	[SSDEntryArchiveId] [int] NULL,
+	[MonthYear] [int] NULL,
+	[Qty] [int] NULL,
+	[Price] [decimal](18, 2) NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [nvarchar](200) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedBy] [nvarchar](200) NULL,
+ CONSTRAINT [PK_SSDEntryQtyPriceArchive] PRIMARY KEY CLUSTERED 
+(
+	[SSDEntryQtyPriceArchiveId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Supplier]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Supplier](
+	[SupplierId] [int] IDENTITY(1,1) NOT NULL,
+	[SupplierName] [varchar](100) NULL,
+	[IsActive] [bit] NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [varchar](100) NULL,
+	[UpdateDate] [datetime] NULL,
+	[UpdateBy] [varchar](100) NULL,
+	[SupplierCode] [varchar](200) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[SupplierId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[test]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[test](
+	[colTime] [datetime] NULL,
+	[msg] [varchar](111) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[TransmissionData]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[TransmissionData](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[CustomerCode] [varchar](50) NULL,
+	[MaterialCode] [varchar](50) NULL,
+	[ResultMonth] [int] NULL,
+	[CurrentMonthYear] [int] NULL,
+	[LockMonthYear] [int] NULL,
+	[MonthYear] [int] NULL,
+	[ModeOfTypeID] [int] NULL,
+	[Qty] [int] NULL,
+	[Amount] [bigint] NULL,
+	[SaleValue] [bigint] NULL,
+	[Plan] [varchar](50) NULL,
+	[SaleType] [varchar](50) NULL,
+	[SaleSequenceType] [varchar](10) NULL,
+	[SalesSequenceTypeText] [char](2) NULL,
+	[CreatedBy] [nvarchar](500) NULL,
+	[CreatedDate] [datetime] NOT NULL,
+	[EDIStatus] [varchar](100) NULL,
+	[Status] [varchar](100) NULL,
+	[PlanTypeName] [varchar](20) NULL,
+	[PlanTypeCode] [int] NULL,
+ CONSTRAINT [PK_TransmissionData] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[TransmissionList]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[TransmissionList](
+	[TransmissionListId] [int] IDENTITY(1,1) NOT NULL,
+	[PlanTypeCode] [varchar](50) NULL,
+	[CustomerCode] [varchar](50) NULL,
+	[IsActive] [bit] NULL,
+	[SalesType] [varchar](50) NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [varchar](200) NULL,
+	[UpdateDate] [datetime] NULL,
+	[UpdateBy] [varchar](200) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[TransmissionListId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[TransmissionPlanType]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[TransmissionPlanType](
+	[TransmissionPlanTypeId] [int] IDENTITY(1,1) NOT NULL,
+	[PlanTypeName] [varchar](50) NULL,
+	[PlanTypeCode] [varchar](50) NULL,
+	[IsActive] [bit] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[TransmissionPlanTypeId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[TRNPricePlanning]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[TRNPricePlanning](
+	[TRNPricePlanningId] [int] IDENTITY(1,1) NOT NULL,
+	[AccountCode] [varchar](50) NULL,
+	[MonthYear] [int] NULL,
+	[MaterialCode] [varchar](50) NULL,
+	[ModeofType] [varchar](50) NULL,
+	[Type] [varchar](50) NULL,
+	[Quantity] [int] NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [varchar](50) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedBy] [varchar](50) NULL,
+	[SalesSubType] [nvarchar](10) NULL,
+	[Price] [decimal](18, 2) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[TRNPricePlanningId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[TRNPricePlanningArchival]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[TRNPricePlanningArchival](
+	[TRNPricePlanningArchivalId] [int] IDENTITY(1,1) NOT NULL,
+	[AccountCode] [varchar](50) NULL,
+	[MonthYear] [int] NULL,
+	[MaterialCode] [varchar](50) NULL,
+	[ModeofType] [varchar](50) NULL,
+	[Type] [varchar](50) NULL,
+	[Quantity] [int] NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [varchar](50) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedBy] [varchar](50) NULL,
+	[CurrentMonthYear] [varchar](10) NULL,
+	[ArchivalDate] [datetime] NULL,
+	[Price] [decimal](18, 2) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[TRNPricePlanningArchivalId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[TRNSalesPlanning]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[TRNSalesPlanning](
+	[TRNSalesPlanningId] [int] IDENTITY(1,1) NOT NULL,
+	[MonthYear] [int] NULL,
+	[CustomerCode] [varchar](50) NULL,
+	[MaterialCode] [varchar](50) NULL,
+	[Quantity] [int] NULL,
+	[Amount] [decimal](18, 2) NULL,
+	[AccountCode] [varchar](50) NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [varchar](50) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedBy] [varchar](50) NULL,
+	[Price] [decimal](18, 2) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[TRNSalesPlanningId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[TRNSalesPlanningArchival]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[TRNSalesPlanningArchival](
+	[TRNSalesPlanningArchivalId] [int] IDENTITY(1,1) NOT NULL,
+	[MonthYear] [int] NULL,
+	[CustomerCode] [varchar](50) NULL,
+	[MaterialCode] [varchar](50) NULL,
+	[Quantity] [int] NULL,
+	[Amount] [decimal](18, 2) NULL,
+	[AccountCode] [varchar](50) NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [varchar](50) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedBy] [varchar](50) NULL,
+	[ArchivalDate] [datetime] NULL,
+	[Price] [decimal](18, 2) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[TRNSalesPlanningArchivalId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[TurnoverDays]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[TurnoverDays](
+	[TurnoverDaysId] [int] IDENTITY(1,1) NOT NULL,
+	[SubGroupProductCategoryCode] [int] NULL,
+	[TurnoverDay] [int] NULL,
+	[Month] [varchar](50) NULL,
+	[AccountId] [int] NULL,
+	[BP_Year] [int] NULL,
+	[Git_Year] [int] NULL,
+	[AttachmentId] [int] NULL,
+	[IsActive] [bit] NULL,
+	[IsDeleted] [bit] NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [varchar](100) NULL,
+	[UpdateDate] [datetime] NULL,
+	[UpdateBy] [varchar](100) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[TurnoverDaysId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[UserCountryMapping]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[UserCountryMapping](
+	[UserId] [nvarchar](100) NOT NULL,
+	[CountryId] [int] NOT NULL,
+	[IsActive] [bit] NULL,
+ CONSTRAINT [PK_UserCountryMapping] PRIMARY KEY CLUSTERED 
+(
+	[UserId] ASC,
+	[CountryId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[UserDepartmentMapping]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[UserDepartmentMapping](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[DepartmentId] [int] NULL,
+	[UserId] [varchar](50) NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [varchar](100) NULL,
+	[UpdateDate] [datetime] NULL,
+	[UpdateBy] [varchar](100) NULL,
+	[IsActive] [bit] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[UserProductMapping]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[UserProductMapping](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[UserId] [varchar](50) NULL,
+	[ProductId] [int] NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [varchar](100) NULL,
+	[UpdateDate] [datetime] NULL,
+	[UpdateBy] [varchar](100) NULL,
+	[IsActive] [bit] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Users]    Script Date: 7/17/2023 9:08:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Users](
+	[UserId] [varchar](100) NOT NULL,
+	[PrincipalId] [varchar](100) NULL,
+	[Name] [varchar](100) NULL,
+	[IsActive] [bit] NULL,
+ CONSTRAINT [PK_Users] PRIMARY KEY CLUSTERED 
+(
+	[UserId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].
